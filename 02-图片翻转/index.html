@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>图片翻转</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            background-color: #24252d;
+        }
+
+        .box {
+            width: 80%;
+            margin: 100px auto;
+        }
+
+        ul {
+            list-style: none;
+            display: grid;
+            /* 4列 */
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-columns: repeat(1fr, 1fr);
+            grid-gap: 30px;
+            /* 居中 */
+            justify-items: center;
+            align-items: center;
+        }
+
+        ul li {
+            width: 350px;
+            height: 250px;
+            /* background-color: yellow; */
+            text-align: center;
+            position: relative;
+        }
+
+        ul li>div {
+            width: 100%;
+            height: 100%;
+            position: absolute;
+            top: 0;
+            left: 0;
+            transition: all .7s;
+            /* 隐藏反面的背面 */
+            backface-visibility: hidden;
+            /* 添加透视 */
+            perspective: 1000px;
+            /* 开启3D空间 */
+            transform-style: preserve-3d;
+        }
+
+        .bgimg1 .front {
+            background: url('./images/1.webp') center/cover;
+            z-index: 1;
+        }
+
+        .bgimg2 .front {
+            background: url('./images/2.webp') center/cover;
+            z-index: 1;
+        }
+
+        .bgimg3 .front {
+            background: url('./images/3.webp') center/cover;
+            z-index: 1;
+        }
+
+        .bgimg4 .front {
+            background: url('./images/4.jpg') center/cover;
+            z-index: 1;
+        }
+
+        .bgimg5 .front {
+            background: url('./images/5.jpg') center/cover;
+            z-index: 1;
+        }
+
+        .bgimg6 .front {
+            background: url('./images/6.jpg') center/cover;
+            z-index: 1;
+        }
+
+        .bgimg7 .front {
+            background: url('./images/2.jpg') center/cover;
+            z-index: 1;
+        }
+
+        .bgimg8 .front {
+            background: url('./images/3.jpg') center/cover;
+            z-index: 1;
+        }
+
+        ul li .back {
+            background: linear-gradient(45deg, #cedce7 0, #596a72 100%);
+            /* background-color: #5a5858; */
+            transform: rotateY(180deg);
+        }
+
+        ul li .back p {
+            color: #fff;
+            transform: translateZ(40px);
+        }
+
+        ul li .front h3 {
+            position: absolute;
+            top: 50px;
+            left: 50%;
+            padding-bottom: 20px;
+            font-size: 30px;
+
+            transform: translateX(-50%) translateZ(40px);
+
+            border-bottom: 2px solid #fff;
+            /* 隐藏反面的背面 */
+            backface-visibility: hidden;
+        }
+
+        ul li .front span {
+            position: absolute;
+            top: 150px;
+            left: 50%;
+            font-size: 20px;
+            transform: translateX(-50%) translateZ(40px);
+            backface-visibility: hidden;
+        }
+
+        ul li .back p {
+            position: absolute;
+            font-size: 18px;
+            top: 50px;
+            left: 50%;
+            letter-spacing: 2px;
+            transform: translateX(-50%) translateZ(40px);
+            backface-visibility: hidden;
+        }
+
+        ul li:hover .front {
+            transform: rotateY(-180deg);
+        }
+
+        ul li:hover .back {
+            transform: rotateY(0deg);
+        }
+    </style>
+</head>
+
+<body>
+
+    <section class="box">
+        <ul>
+            <li class="bgimg1">
+                <div class="front">
+                    <h3>上海滩</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>浪奔浪流 <br>
+                        万里涛涛江水永不休 <br>
+                        淘尽了世间事 <br>
+                        混作滔滔一片潮流 <br>
+                        是喜是愁
+                    </p>
+                </div>
+            </li>
+            <li class="bgimg2">
+                <div class="front">
+                    <h3>忘情水</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>曾经年少爱追梦<br>
+                        一心只想往前飞<br>
+                        行遍千山和万水<br>
+                        一路走来不能回<br>
+                        蓦然回首情已远</p>
+                </div>
+            </li>
+            <li class="bgimg3">
+                <div class="front">
+                    <h3>世界第一等</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>人生的风景<br>
+                        亲像大海的风涌<br>
+                        有时猛有时平 这个季节<br>
+                        亲爱朋友你着小心<br>
+                        人生的环境</p>
+                </div>
+            </li>
+            <li class="bgimg4">
+                <div class="front">
+                    <h3>冰雨</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>我是在等待一个女孩<br>
+                        还是在等待沉沦苦海<br>
+                        一段情默默灌溉<br>
+                        没有人去管花谢花开<br>
+                        无法肯定的爱</p>
+                </div>
+            </li>
+            <li class="bgimg5">
+                <div class="front">
+                    <h3>上海滩</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>浪奔浪流 <br>
+                        万里涛涛江水永不休 <br>
+                        淘尽了世间事 <br>
+                        混作滔滔一片潮流 <br>
+                        是喜是愁
+                    </p>
+                </div>
+            </li>
+            <li class="bgimg6">
+                <div class="front">
+                    <h3>上海滩</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>浪奔浪流 <br>
+                        万里涛涛江水永不休 <br>
+                        淘尽了世间事 <br>
+                        混作滔滔一片潮流 <br>
+                        是喜是愁
+                    </p>
+                </div>
+            </li>
+            <li class="bgimg7">
+                <div class="front">
+                    <h3>上海滩</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>浪奔浪流 <br>
+                        万里涛涛江水永不休 <br>
+                        淘尽了世间事 <br>
+                        混作滔滔一片潮流 <br>
+                        是喜是愁
+                    </p>
+                </div>
+            </li>
+            <li class="bgimg8">
+                <div class="front">
+                    <h3>上海滩</h3>
+                    <span>刘德华</span>
+                </div>
+                <div class="back">
+                    <p>浪奔浪流 <br>
+                        万里涛涛江水永不休 <br>
+                        淘尽了世间事 <br>
+                        混作滔滔一片潮流 <br>
+                        是喜是愁
+                    </p>
+                </div>
+            </li>
+        </ul>
+    </section>
+</body>
+
+</html>
