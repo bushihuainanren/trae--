@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+  <style>
+    /* 重置默认样式 */
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html,
+    body {
+      /* 设置视口高度为100% 保持视差滚动效果 */
+      height: 100%;
+    }
+
+    /* 视差滚动容器 */
+    section[class^='section'] {
+      /* 容器宽度和高度为视口高度和宽度 */
+      width: 100%;
+      height: 100vh;
+      /*为了H3标题居中显示 父元素要设置相对定位  */
+      position: relative;
+
+    }
+
+    .section1 {
+      /* 背景图片居中显示 */
+      background: url('./images/bg1.jpg') fixed center/cover;
+    }
+
+    .section2 {
+      background: url('./images/bg2.jpg') fixed center/cover;
+    }
+
+    .section3 {
+      background: url('./images/bg3.jpg') fixed center/cover;
+    }
+
+    .section4 {
+      background: url('./images/bg4.jpg') fixed center/cover;
+    }
+
+    /* 视差滚动的内容 */
+    .content {
+
+      /* 内容宽度为100% 高度为20% */
+      width: 100%;
+      height: 20%;
+      /* 内容字体的样式 */
+      font-size: 16px;
+      /* 内容字体的行高 */
+      line-height: 40px;
+      /* 内容内边距 为了好看 */
+      padding: 20px;
+      /* 字体颜色 */
+      color: #fff;
+      /* 字体间距 */
+      letter-spacing: 1px;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
+
+    h3 {
+      /* 这四行 就是为了 标题居中显示 */
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-size: 40px;
+      color: #fff;
+      letter-spacing: 10px;
+    }
+  </style>
+</head>
+
+<body>
+  <!-- 视差滚动案例 -->
+  <section class="section1">
+    <!-- 视差滚动的内容 -->
+    <div class="content">
+      <p>夕阳是融化的铁，把云絮焊成金红的铠甲。天空在燃烧，而大地只是沉默地承接这些温柔的灰烬</p>
+      <p>这样的黄昏，让人想起灶膛里将熄的柴火，明明灭灭的舔着旧事。而光影是狡黠的，它把柳枝拉长成琴弦，却让归鸟的翅膀，在弦上拨出无声的颤音</p>
+      <p>偶尔有晚钟传来，像一粒纽扣，滚进群山厚重的褶皱里</p>
+      <p>风景独好</p>
+    </div>
+    <h3>落日夕阳</h3>
+  </section>
+  <section class="section2">
+    <!-- 视差滚动的内容 -->
+    <div class="content">
+      <p>湖面碧波如镜，倒映层叠山峦，水天相接处如同晕染的水墨画。</p>
+      <p>瀑布飞泻激起银白水花，雪山巍峨直抵云霄，尽显自然磅礴气势。</p>
+      <p>云卷云舒，天寒地冻，景色宜人。</p>
+      <p>风景独好</p>
+    </div>
+    <h3>山水湖色</h3>
+  </section>
+  <section class="section3">
+    <!-- 视差滚动的内容 -->
+    <div class="content">
+      <p>海是倒悬的天空，吞没了所有坠落的蓝。浪尖上浮动的碎光，像被揉皱的锡纸，又缓缓展平。</p>
+      <p>这样的辽阔，让人想起童年时贴在耳畔的海螺轰鸣中藏着永恒的寂静。</p>
+      <p>而潮汐是固执的，它一遍遍擦拭沙滩上的印记，却把云朵和飞鸟的影子，都腌渍在自己的深渊里。</p>
+      <p>风景独好</p>
+    </div>
+    <h3>广阔蓝海</h3>
+  </section>
+  <section class="section4">
+    <!-- 视差滚动的内容 -->
+    <div class="content">
+      <p>雪是天空跌落的云絮，被风揉碎了，又轻轻铺展。远山如宣纸上的淡墨，在蓝得发脆的苍穹下涸开。</p>
+      <p>这样的蓝，让人想起童年时舔过的玻璃糖纸，甜而冷冽地黏在舌尖。</p>
+      <p>而雪是沉默的，它覆盖了所有来时的足迹，却把天空的影子拓印在自己身上一于是大地成了另一片倒置的天</p>
+      <p>风景独好</p>
+    </div>
+    <h3>白雪蓝天</h3>
+  </section>
+</body>
+
+</html>
