@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>跑马灯登录框</title>
+  <style>
+    * {
+      padding: 0;
+      margin: 0;
+      box-sizing: border-box;
+    }
+
+    .login-box {
+      position: relative;
+      width: 300px;
+      height: 300px;
+      margin: 100px auto;
+      /* AI让我添加了圆角 */
+      border-radius: 12px;
+      overflow: hidden;
+      /* 有没有都行  得看你这整体的内容是以什么显示的 background-origin: border-box;  
+                       存疑等验证 
+       border: 5px solid transparent; */
+      font-size: 24px;
+      text-align: center;
+      line-height: 300px;
+      color: #ff0066;
+    }
+
+    .login-box::before {
+      content: '';
+      position: absolute;
+
+      /* 背景平移效果实现 */
+      /* top: 0%;
+      left: 0%;
+      width: 200%;
+      height: 100%; */
+      /* 背景旋转效果实现 */
+      top: -50%;
+      left: -50%;
+      width: 200%;
+      height: 200%;
+      /* 径向渐变 重复水平方向并截取成两半 (red 13%, yellow 47%, green)这是我自己写的，看起来有点晕
+          AI让我添加的是这个(circle, #ffcc00 10%, #ff6600 47%, #ff0066 90%)   看起来没我做的炫酷    */
+      background: radial-gradient(circle, #ffcc00 10%, #ff6600 47%, #ff0066 90%);
+      background-size: 50% 100%;
+      animation: move 5s linear infinite;
+      z-index: -1;
+    }
+
+    .login-box::after {
+      content: '';
+      /* ai让我把黑色背景换成白色背景 */
+      background-color: #fff;
+      position: absolute;
+      /* 出错的问题 绝对定位后，你设置的宽度和高度的100% 加上这些偏移量 会使元素超出父元素的范围，导致只显示左上角的部分 */
+      /* top: 3px;
+      left: 3px;
+      right: 3px;
+      bottom: 3px; */
+      /* 新知识inset3px 相当于上面4句话 */
+      inset: 3px;
+      /* 这个是自己加的，看起来还可以 */
+      border-radius: 12px;
+      z-index: -1;
+      /* 为什么我加和不加是一样的？ */
+      /* padding: 5px; */
+    }
+
+    /* 用平移效果实现的 */
+    /* @keyframes move {
+      0% {
+        background-position: 0 0;
+      }
+
+      100% {
+        background-position: -100% 0;
+      }
+    } */
+    /* 用旋转效果实现 */
+    @keyframes move {
+      0% {
+        transform: rotate(0deg);
+      }
+
+      100% {
+        transform: rotate(360deg);
+      }
+    }
+
+    .login-box:hover::before {
+      animation-play-state: paused;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="login-box">
+    渐变案例
+  </div>
+</body>
+
+</html>
