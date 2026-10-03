@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>3D悬停</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: #1a252c;
+    }
+
+    .box {
+      margin: 200px auto;
+      display: flex;
+      justify-content: center;
+      justify-items: center;
+      /* 显示倒影   新学的一个属性，用于创建元素的倒影 第一个值为倒影的位置
+        属性都有below是倒影在元素下方 和above是倒影在元素上方/
+        第二个值为倒影的宽度*/
+      -webkit-box-reflect: below 2px linear-gradient(transparent, #0002);
+    }
+
+    .box .item {
+      width: 200px;
+      height: 200px;
+      margin: 0 10px;
+      border-radius: 15px;
+      /* cursor: pointer;  鼠标悬停时显示为指针 */
+      cursor: pointer;
+      transition: all .5s;
+    }
+
+    .box .item:hover {
+      transform: scale(1.2);
+      z-index: 1;
+    }
+
+    /* 新学的一个选择器 ：not()选择器，用于排除指定的元素 */
+    .box:hover .item:not(:hover) {
+      transform: perspective(500px) scale(0.9) rotateY(45deg);
+      margin: 0 -20px;
+    }
+
+    /* 新学的一个选择器 ：~选择器，用于选择所有在指定元素后面的所有元素 */
+    .box .item:hover~.item {
+      transform: perspective(500px) scale(0.9) rotateY(-45deg);
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <img class="item" src="./images/1.png"></img>
+    <img class="item" src="./images/2.png"></img>
+    <img class="item" src="./images/3.png"></img>
+    <img class="item" src="./images/4.png"></img>
+    <img class="item" src="./images/5.png"></img>
+  </div>
+</body>
+
+</html>
