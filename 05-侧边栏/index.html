@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>侧边栏效果</title>
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_4875044_xtl4xkn67d.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    ul {
+      list-style: none;
+      width: 80px;
+      background-color: #1e1e2d;
+      margin: 100px 200px;
+      padding: 20px 0;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      border-radius: 10px;
+    }
+
+    ul li {
+      width: 40px;
+      height: 40px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin-bottom: 15px;
+      color: #9a9cae;
+      position: relative;
+      border-radius: 10px;
+    }
+
+    ul li:nth-child(5) {
+      margin-bottom: 60px;
+    }
+
+    ul li:nth-child(6)::before {
+      content: '';
+      display: block;
+      width: 40px;
+      top: -30px;
+      left: 0;
+      border: 1px solid #fff;
+      position: absolute;
+    }
+
+    p {
+      opacity: 0;
+      /* width: 100px; */
+      white-space: nowrap;
+      height: 40px;
+      font-size: 16px;
+      position: absolute;
+      border-radius: 8px;
+      color: #fff;
+      left: 90px;
+      letter-spacing: 3px;
+      background-color: #7f5af0;
+      text-align: center;
+      line-height: 40px;
+      transition: all 0.3s;
+      padding: 0 10px;
+    }
+
+    p::before {
+      content: '';
+      display: block;
+      position: absolute;
+      width: 16px;
+      height: 16px;
+      top: 50%;
+      left: -7px;
+      transform: translateY(-50%) rotate(45deg);
+      background-color: #7f5af0;
+      z-index: -1;
+    }
+
+    ul li:hover p {
+      opacity: 1;
+    }
+
+    ul li:hover {
+      background-color: #7f5af0;
+    }
+
+    ul li:hover i {
+      color: #fff;
+    }
+  </style>
+</head>
+
+<body>
+  <ul>
+    <li>
+      <i class="iconfont icon-shouye"></i>
+      <p>首页</p>
+    </li>
+    <li>
+      <i class="iconfont icon-chanpinguanli"></i>
+      <p>商品管理</p>
+    </li>
+    <li>
+      <i class="iconfont icon-huiyuanguanli"></i>
+      <p>会员管理</p>
+    </li>
+    <li>
+      <i class="iconfont icon-baobao-shoutibao"></i>
+      <p>订单管理</p>
+    </li>
+    <li>
+      <i class="iconfont icon-qia"></i>
+      <p>财务中心</p>
+    </li>
+    <li>
+      <i class="iconfont icon-tongzhi"></i>
+      <p>通知</p>
+    </li>
+    <li>
+      <i class="iconfont icon-shezhi"></i>
+      <p>设置</p>
+    </li>
+    <li>
+      <i class="iconfont icon-ren"></i>
+      <p>个人中心</p>
+  </ul>
+</body>
+
+</html>
