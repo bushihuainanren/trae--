@@ -46,6 +46,8 @@
     .box:hover .item:not(:hover) {
       transform: perspective(500px) scale(0.9) rotateY(45deg);
       margin: 0 -20px;
+      /* 加了filter模糊处理 */
+      filter: blur(5px);
     }
 
     /* 新学的一个选择器 ：~选择器，用于选择所有在指定元素后面的所有元素 */
