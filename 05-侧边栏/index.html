@@ -13,6 +13,22 @@
       box-sizing: border-box;
     }
 
+    /* 这是第一个问题的解决方法 */
+    a {
+      /* 清除下划线 */
+      text-decoration: none;
+      color: #9a9cae;
+    }
+
+    /* 这是第二个问题的解决办法   不让用ul{margin:100px 200px;}
+    以及span{position:absolute;left:90px;}这种魔法定位 */
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+
     ul {
       list-style: none;
       width: 80px;
@@ -26,50 +42,57 @@
     }
 
     ul li {
-      width: 40px;
-      height: 40px;
+      margin-bottom: 15px;
+    }
+
+    /* 这是第三个问题的解决方法  以前我是利用伪元素来划的分割线，现在直接一个小li就解决了 */
+    .divider {
+      height: 1px;
+      background-color: #9a9cae;
+      margin: 30px 0;
+    }
+
+    .nav-link {
+      /* 为了解决无障碍阅读 导致的黑框  关掉默认的outline黑框 */
+      outline: none;
       display: flex;
       justify-content: center;
       align-items: center;
-      margin-bottom: 15px;
-      color: #9a9cae;
+      width: 40px;
+      height: 40px;
       position: relative;
       border-radius: 10px;
+      color: #9a9cae;
     }
 
-    ul li:nth-child(5) {
-      margin-bottom: 60px;
-    }
-
-    ul li:nth-child(6)::before {
-      content: '';
-      display: block;
-      width: 40px;
-      top: -30px;
-      left: 0;
-      border: 1px solid #fff;
-      position: absolute;
-    }
-
-    p {
+    .nav-link span {
+      /* 第四个问题这是透明度  后续不要用all 来进行了 直接
+      opacity：0; visibility:hidden; 就行 visibility是隐藏的意思 */
       opacity: 0;
-      /* width: 100px; */
+      visibility: hidden;
+      pointer-events: none;
+      /* 解决这个absolute定位后文字超出宽度的问题，就是字会掉下来
+      white-space: nowrap强制不换行    */
       white-space: nowrap;
       height: 40px;
       font-size: 16px;
       position: absolute;
       border-radius: 8px;
       color: #fff;
-      left: 90px;
+      /* 这也是魔法定位问题  问题二的改版  我以前写法是left:90px;而不是用
+      left: 100%;
+      margin-left: 35px;这种方法解决的 */
+      left: 100%;
+      margin-left: 35px;
       letter-spacing: 3px;
       background-color: #7f5af0;
       text-align: center;
       line-height: 40px;
-      transition: all 0.3s;
+      transition: opacity 0.3s, visibility 0.3s;
       padding: 0 10px;
     }
 
-    p::before {
+    .nav-link span::before {
       content: '';
       display: block;
       position: absolute;
@@ -82,53 +105,91 @@
       z-index: -1;
     }
 
-    ul li:hover p {
+    /* :focus-within 伪类选择器  当元素或其子元素获得焦点时触发  对于无障碍阅读及其友好*/
+    .nav-link:hover span,
+    .nav-link:focus-within span {
+      /* 问题四的解决方法 */
       opacity: 1;
+      visibility: visible;
+      /* 问题四添加了这个属性 pointer-events: none 是为了点击span时不会触发点击事件
+      但是如果加了:focus-within 这个选择器就必须把pointer-events: none设置成auto */
+      pointer-events: none;
     }
 
-    ul li:hover {
+    .nav-link:hover {
       background-color: #7f5af0;
     }
 
-    ul li:hover i {
+    .nav-link:hover i {
       color: #fff;
+    }
+
+    .nav-link:focus-visible {
+      outline: 2px solid #7f5af0;
     }
   </style>
 </head>
 
 <body>
   <ul>
-    <li>
+    <!-- 第一个问题：语义化不够 
+     <li>
       <i class="iconfont icon-shouye"></i>
-      <p>首页</p>
+      <span>首页</span>
+    </li>   这是你自己的写法
+      -->
+    <li>
+      <a href="https://www.baidu.com" class="nav-link">
+        <i class="iconfont icon-shouye"></i>
+        <span>首页</span>
+      </a>
     </li>
     <li>
-      <i class="iconfont icon-chanpinguanli"></i>
-      <p>商品管理</p>
+      <a href="#" class="nav-link">
+        <i class="iconfont icon-chanpinguanli"></i>
+        <span>商品管理</span>
+      </a>
     </li>
     <li>
-      <i class="iconfont icon-huiyuanguanli"></i>
-      <p>会员管理</p>
+      <a href="#" class="nav-link">
+        <i class="iconfont icon-huiyuanguanli"></i>
+        <span>会员管理</span>
+      </a>
     </li>
     <li>
-      <i class="iconfont icon-baobao-shoutibao"></i>
-      <p>订单管理</p>
+      <a href="#" class="nav-link">
+        <i class="iconfont icon-baobao-shoutibao"></i>
+        <span>订单管理</span>
+      </a>
+    </li>
+
+    <li>
+      <a href="#" class="nav-link">
+        <i class="iconfont icon-qia"></i>
+        <span>财务中心</span>
+      </a>
+    </li>
+    <!-- divider 分割线 -->
+    <li class="divider">
+
     </li>
     <li>
-      <i class="iconfont icon-qia"></i>
-      <p>财务中心</p>
+      <a href="#" class="nav-link">
+        <i class="iconfont icon-tongzhi"></i>
+        <span>通知</span>
+      </a>
     </li>
     <li>
-      <i class="iconfont icon-tongzhi"></i>
-      <p>通知</p>
+      <a href="#" class="nav-link">
+        <i class="iconfont icon-shezhi"></i>
+        <span>设置</span>
+      </a>
     </li>
     <li>
-      <i class="iconfont icon-shezhi"></i>
-      <p>设置</p>
-    </li>
-    <li>
-      <i class="iconfont icon-ren"></i>
-      <p>个人中心</p>
+      <a href="#" class="nav-link">
+        <i class="iconfont icon-ren"></i>
+        <span>个人中心</span>
+      </a>
   </ul>
 </body>
 
