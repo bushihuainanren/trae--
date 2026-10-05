@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>炫酷导航</title>
+  <link rel="stylesheet" href="//at.alicdn.com/t/c/font_5240171_6kmri6r56hp.css">
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background-color: #303640;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      overflow: hidden;
+    }
+
+    .box {
+      position: relative;
+      width: 200px;
+      height: 200px;
+      background-color: #303640;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .box .nav {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: #fff;
+      background-color: #303640;
+      border: 2px solid #fff;
+      transition: all 1.25s;
+      z-index: 1;
+      cursor: pointer;
+    }
+
+
+    /* 问题3：一松手就没了，完全点不到span的自身上 */
+    /* 要让大盒子hover  这样才可以让nav松手的时候 span不消失 */
+    .box:hover .nav {
+      transform: rotate(315deg);
+    }
+
+    .box span {
+      position: absolute;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 40px;
+      height: 40px;
+      color: var(--cl);
+      border: 1px solid var(--cl);
+      border-radius: 50%;
+      transition: all 0.5s calc(var(--i) * 0.1s);
+      cursor: pointer;
+    }
+
+    .box span i {
+      font-size: 16px;
+    }
+
+
+    .box:hover span {
+      transform: rotate(calc(var(--i) * 45deg)) translateX(80px);
+    }
+
+    /* 问题1：转到一定位置   部分东西自身需要旋转回来 */
+    .box:hover span i {
+      transform: rotate(calc(var(--i) * -45deg));
+    }
+
+    /* 问题2：阴影效果没有显示出来 */
+    .box span:hover {
+      box-shadow:
+        0 0 10px var(--cl),
+        0 0 30px var(--cl),
+        0 0 50px var(--cl);
+      /* 把背景色也改变成当前的cl 颜色改成#333 */
+      background-color: var(--cl);
+      color: #333;
+      transition: all 0s;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="box">
+    <div class="nav">
+      <i class="iconfont icon-jiahao"></i>
+    </div>
+    <span style="--i : 0;--cl: #ff2972">
+      <i class="iconfont icon-shoucang"></i>
+    </span>
+    <span style="--i : 1;--cl: #fee800">
+      <i class="iconfont icon-gouwuchekong"></i>
+    </span>
+    <span style="--i : 2;--cl: #04fc43">
+      <i class="iconfont icon-shengriliwu"></i>
+    </span>
+    <span style="--i : 3;--cl: #fe00f1">
+      <i class="iconfont icon-caidan"></i>
+    </span>
+    <span style="--i : 4;--cl: #00b0f1">
+      <i class="iconfont icon-qian4"></i>
+    </span>
+    <span style="--i : 5;--cl: #008102">
+      <i class="iconfont icon-shouye"></i>
+    </span>
+    <span style="--i : 6;--cl: #40e1d2">
+      <i class="iconfont icon-shezhi"></i>
+    </span>
+    <span style="--i : 7;--cl: #410898">
+      <i class="iconfont icon-xiaoxi"></i>
+    </span>
+  </div>
+</body>
+
+</html>
