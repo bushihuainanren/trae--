@@ -37,31 +37,29 @@
       position: absolute;
       top: 0;
       left: 0;
-      /* 这是我自己写的  AI给了我更适合的写法 */
-      /* animation: move 3s linear infinite; */
-      clip-path: inset(0 100% 0 0);
-      animation: sweep 3s linear infinite;
+      position: absolute;
+      top: 0;
+      left: 0;
+      animation: move 5s linear infinite;
     }
 
-
-    @keyframes move {
-
-      /* -webkit-clip-path: circle(50% at 56% 43%);
+    /* -webkit-clip-path: circle(50% at 56% 43%);
         clip-path: circle(50% at 56% 43%); 
         https://tools.jb51.net/static/api/css3path/index.html   这是网址*/
+    @keyframes move {
       0% {
-        -webkit-clip-path: circle(20% at 0 50%);
-        clip-path: circle(20% at 0 50%);
+        -webkit-clip-path: circle(20% at -50% 50%);
+        clip-path: circle(20% at -50% 50%);
       }
 
       50% {
-        -webkit-clip-path: circle(20% at 100% 50%);
-        clip-path: circle(20% at 100% 50%);
+        -webkit-clip-path: circle(20% at 150% 50%);
+        clip-path: circle(20% at 150% 50%);
       }
 
       100% {
-        -webkit-clip-path: circle(20% at 0% 50%);
-        clip-path: circle(20% at 0% 50%);
+        -webkit-clip-path: circle(20% at -50% 50%);
+        clip-path: circle(20% at -50% 50%);
       }
     }
   </style>
